@@ -1,0 +1,45 @@
+<%- include('../partials/header') %>
+ <h1>Books</h1>
+ 
+ <form action="/books/searched-books" method="GET">
+  <input type="search" name="title"  placeholder="Search for a book">
+   <button type="submit">Search</button>
+ </form>
+ 
+ <% if(titleSearch) { %>
+  <h2>Results for: <%= titleSearch %></h2>
+<% } %>
+
+
+ <table>
+  <thead>
+    <tr>
+    
+      <th>title</th>
+      <th>Isbn</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% books.forEach((book)=>{ %>
+    <tr>
+      
+    <td><%= book.title %></td>
+    <td><%= book.isbn %></td>
+    <td>
+      <a href="/books/<%= book._id %>">Open</a>
+    </td>
+    <td>
+    <%  if(user?._id.equals(book.userRecommending)) {%>
+    <form action="/books/<%= book._id %>?_method=DELETE" method="POST">
+      <button type="submit">Delete</button>
+    </form>
+ <%  }%>
+    </td>
+   
+  </tr>
+  <%  }) %>
+    
+  </tbody>
+ </table>
+  
+<%- include('../partials/footer') %>

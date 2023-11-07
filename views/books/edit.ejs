@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+
+<section>
+  <h1>Edit Book</h1>
+  <form action="/books/<%= book._id %>?_method=PUT" method="POST">
+    <div>
+      <label>Title:</label>
+      <input type="text" id="title" name="title" value="<%= book.title %>" required>
+    </div>
+
+    <div>
+      <label>ISBN:</label>
+      <input type="text" id="isbn" name="isbn" value="<%= book.isbn %>" required>
+    </div>
+
+ 
+    <div>
+      <button type="submit">Save Changes</button>
+    </div>
+  </form>
+</section>
+
+<%- include('../partials/footer') %>

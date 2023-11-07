@@ -1,0 +1,28 @@
+<%- include('../partials/header') %>
+ <h1>My Reading List</h1>
+ 
+
+ <table>
+  <thead>
+    <tr>
+    
+      <th>title</th>
+      <th>Isbn</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% books.forEach((book)=>{ %>
+    <tr>
+      
+    <td><%= book.title %></td>
+    <td><%= book.isbn %></td>
+    <td>
+      <a href="/books/<%= book._id %>">Open</a>
+    </td>
+  </tr>
+  <%  }) %>
+    
+  </tbody>
+ </table>
+  
+<%- include('../partials/footer') %>

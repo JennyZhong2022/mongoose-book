@@ -1,0 +1,29 @@
+<%- include('../partials/header') %>
+
+<section >
+  <div>Title: </div>
+  <div><%= book.title %></div>
+  
+  <div>ISBN: </div>
+  <div><%= book.isbn %></div>
+  <div>
+   
+  <% if(!book.userReading.includes(user._id)){  %>
+    <a href="/books/my-reading-list/<%= book._id %>">
+   <button type="submit" >Add To My List</button>   </a>
+   <% }   %>
+  
+
+  </div>
+
+  <div>
+  <%  if(user?._id.equals(book.userRecommending)) {%>
+    <a href="/books/<%= book._id %>/edit"><button type="submit">Edit</button></a>
+ 
+ <%  }%>
+</div>
+</section>
+
+
+
+<%- include('../partials/footer') %>
